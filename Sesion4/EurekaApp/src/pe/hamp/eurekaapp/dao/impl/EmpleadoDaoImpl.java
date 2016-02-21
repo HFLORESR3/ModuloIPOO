@@ -97,7 +97,40 @@ public class EmpleadoDaoImpl
 
     @Override
     public void eliminar(String codigo) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
+
+      Connection cn = null;
+    try {
+      // Obtener la conexiÃ³n
+      cn = AccesoDB.getConnection();
+      // Habilitar la transacciÃ³n
+      cn.setAutoCommit(false);
+      
+      //actualizar registro
+      String sql="delete from empleado where chr_emplcodigo='"+codigo+"'";
+      PreparedStatement pstm = cn.prepareStatement(sql);
+      pstm.executeUpdate();
+      pstm.close();
+      // Confimar transacciÃ³n
+      cn.commit();
+    } catch (SQLException e) {
+      try {
+        cn.rollback();
+      } catch (Exception e1) {
+      }
+      throw new RuntimeException(e.getMessage());
+    } catch (Exception e) {
+      try {
+        cn.rollback();
+      } catch (Exception e1) {
+      }
+      throw new RuntimeException("Error en el proceso Registrar Deposito, intentelo mas tarde.");
+    } finally {
+      try {
+        cn.close();
+      } catch (Exception e) {
+      }
+    }
     }
 
 }
