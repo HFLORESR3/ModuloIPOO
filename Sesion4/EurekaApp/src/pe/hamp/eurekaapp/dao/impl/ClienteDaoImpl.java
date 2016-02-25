@@ -124,6 +124,7 @@ public class ClienteDaoImpl
    */
   @Override
   public void insertar(ClienteBean bean) {
+      System.out.println(bean.getEmail());
     Connection cn = null;
     try {
       // Obtener la conexiÃ³n
@@ -170,7 +171,7 @@ public class ClienteDaoImpl
       pstm.setString(6, bean.getCiudad());
       pstm.setString(7, bean.getDireccion());
       pstm.setString(8, bean.getTelefono());
-      pstm.setString(9, bean.getCodigo());
+      pstm.setString(9, bean.getEmail());
       pstm.executeUpdate();
       pstm.close();
       bean.setCodigo(codigo);

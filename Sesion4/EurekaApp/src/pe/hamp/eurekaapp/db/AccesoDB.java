@@ -23,7 +23,7 @@ public final class AccesoDB {
     Connection cn = null;
     // Parametros para la conexión con JDBC
     String driver = "oracle.jdbc.OracleDriver";
-    String urlDB = "jdbc:oracle:thin:@Armando-PC:1521:XE";
+    String urlDB = "jdbc:oracle:thin:@HP1:1521:XE";
     
     String user = "eureka";
     String pass = "admin";

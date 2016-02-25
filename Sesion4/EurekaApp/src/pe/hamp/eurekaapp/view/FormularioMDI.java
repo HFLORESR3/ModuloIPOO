@@ -100,6 +100,11 @@ public class FormularioMDI extends javax.swing.JFrame {
         menuTablas.add(menuTablasCliente);
 
         menuTablasEmpleado.setText("Empleados");
+        menuTablasEmpleado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuTablasEmpleadoActionPerformed(evt);
+            }
+        });
         menuTablas.add(menuTablasEmpleado);
 
         menuTablasSucursal.setText("Sucursales");
@@ -143,6 +148,10 @@ public class FormularioMDI extends javax.swing.JFrame {
   private void menuTablasClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuTablasClienteActionPerformed
     cargarFormulario(MantClientesView.class);
   }//GEN-LAST:event_menuTablasClienteActionPerformed
+
+    private void menuTablasEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuTablasEmpleadoActionPerformed
+        cargarFormulario(MantEmpleadoView.class);
+    }//GEN-LAST:event_menuTablasEmpleadoActionPerformed
 
   /**
    * @param args the command line arguments
